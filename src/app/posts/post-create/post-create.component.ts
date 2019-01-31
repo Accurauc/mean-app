@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'sw-post-create',
@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostCreateComponent implements OnInit {
 
-  public enteredPosts = '';
-  public post = '';
+  @Output() postCreated: EventEmitter<any> = new EventEmitter();
+
+  public enteredContent = '';
+  public enteredTitle = '';
 
   constructor() { }
 
@@ -16,7 +18,10 @@ export class PostCreateComponent implements OnInit {
   }
 
   public onAddPost() {
-    this.post = this.enteredPosts;
+    this.postCreated.emit({
+      title: this.enteredTitle,
+      content: this.enteredContent
+    });
   }
 
 }
