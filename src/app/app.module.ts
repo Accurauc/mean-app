@@ -28,7 +28,7 @@ import { PostListComponent } from './posts/post-list/post-list/post-list.compone
     MatToolbarModule,
     MatExpansionModule
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

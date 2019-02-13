@@ -1,12 +1,16 @@
 <mat-card>
-  <mat-form-field>
-    <input matInput type="text" [(ngModel)]="enteredTitle">
-  </mat-form-field>
-  <mat-form-field>
-    <textarea matInput rows="6" [(ngModel)]="enteredContent"></textarea>
-  </mat-form-field>
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="onAddPost()">Save Posts</button>
+  <form (ngSubmit)="onAddPost(form)" #form="ngForm">
+      <mat-form-field>
+        <input matInput type="text" name="title" ngModel #title="ngModel" required placeholder="標題">
+        <mat-error *ngIf="title.invalid">請輸入標題</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput rows="6" name="content"  ngModel #content="ngModel" required placeholder="內容"></textarea>
+        <mat-error *ngIf="content .invalid">請輸入內容</mat-error>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit">Save Posts</button>
+  </form>
 </mat-card>

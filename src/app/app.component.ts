@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Post } from './posts/post.model';
 
 @Component({
   selector: 'sw-root',
@@ -6,8 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  storedPosts = [];
-  public handlePostCreated(post) {
+  storedPosts: Post[] = [];
+  public handlePostCreated(post: Post) {
     this.storedPosts.push(post);
   }
 }
